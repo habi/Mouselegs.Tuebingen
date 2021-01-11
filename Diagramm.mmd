@@ -1,10 +1,10 @@
 graph TD
-	R[Reconstructions] -->|Thresholding|T(Separation<br />Background vs. Bones & Vessels)
-	R[Reconstructions] -->|Maximum<br />intenstity<br />projection|V(Visualization)
-	R[Reconstructions] -->|Extraction<br />of middle<br />view|V(Visualization)
-	T -->|Flooding|F[Filling of bones]
-	F -->|Tophat|TH[Only small vessels]
-	TH -->|Skeletonization| S[Vessel centerlines]
-	TH -->|EDT| E[Vessel diameters]
-	E -->C[Vessel diameter at centerline]
-	S -->C
+    R[Reconstructions] --> |Thresholding|T(Separation<br />Background vs. Bones & Vessels)
+    R[Reconstructions] --> |Maximum<br />intenstity<br />projection|V(Visualization)
+    R[Reconstructions] --> |Extraction<br />of middle<br />view|V(Visualization)
+    T --> |Flooding|F[Filling of bones]
+    F --> |Tophat|TH[Extraction<br />of small<br />vessels]
+    TH --> |Skeletonization|S[Vessel centerlines]
+    TH --> |Euclidean<br />distance<br />transformation|E[Vessel diameters]
+    E --> C[Vessel diameter at centerline]
+    S --> C
